@@ -29,10 +29,11 @@ namespace TOTAL_CAR_FEES.APPLICATION.Fees.Queries
             _ = request.vehicleType ?? throw new ArgumentException(nameof(request.vehicleType), "Request param needed to handle this task");
             _ = !ValidateBasePrice(request.basePrice) ? throw new ArgumentException(nameof(request.basePrice), "Invalid value") : true;
             _ = !ValidateVehycloeType(request.vehicleType) ? throw new ArgumentException(nameof(request.vehicleType), "Invalid value") : true;
+            decimal decimalBasePrice = decimal.Parse(request.basePrice);
+            _ = decimalBasePrice <= 0 ? throw new ArgumentException(nameof(request.basePrice), "Invalid value: can not be zero or negative") : true;
             #endregion
 
             #region Fees Calculations
-            decimal decimalBasePrice = decimal.Parse(request.basePrice);
             decimal basicFee = _feesService.CalculateBasicFee(decimal.Parse(request.basePrice), request.vehicleType.ToLower());
             decimal specialFee = _feesService.CalculateSpecialFee(decimal.Parse(request.basePrice), request.vehicleType.ToLower());
             decimal associationFee = _feesService.CalculateAssociationFee(decimal.Parse(request.basePrice), request.vehicleType.ToLower());
