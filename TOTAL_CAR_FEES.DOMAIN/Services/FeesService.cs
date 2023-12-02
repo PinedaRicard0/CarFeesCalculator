@@ -6,13 +6,26 @@ namespace TOTAL_CAR_FEES.DOMAIN.Services
     [DomainService]
 	public class FeesService
 	{
-		public FeesService()
+        private const string LUXURY = "luxury";
+        private const string COMMON = "common";
+
+        public FeesService()
 		{
 		}
 
 		public decimal CalculateBasicFee(decimal value, string vehicleType)
 		{
-			return 651651;
+            decimal tenPercent = (decimal)0.1;
+            decimal tenPercentFee = value * tenPercent;
+            if (vehicleType.ToLower().Equals(LUXURY))
+            {
+                return (tenPercentFee >= 25 && tenPercentFee <= 200) ? tenPercentFee : (tenPercentFee < 25) ? 25 : 200;
+            }
+            else if (vehicleType.ToLower().Equals(COMMON))
+            {
+                return (tenPercentFee >= 10 && tenPercentFee <= 50) ? tenPercentFee : (tenPercentFee < 10) ? 10 : 50;
+            }
+            throw new ArgumentException("Can not perform the calculation");
 		}
 
         public decimal CalculateSpecialFee(decimal value, string vehicleType)
@@ -25,7 +38,7 @@ namespace TOTAL_CAR_FEES.DOMAIN.Services
             return 4546;
         }
 
-        public decimal GetFixedFee(decimal value, string vehicleType)
+        public decimal GetFixedFee()
         {
             return 100;
         }

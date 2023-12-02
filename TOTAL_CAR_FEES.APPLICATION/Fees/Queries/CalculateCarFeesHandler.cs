@@ -24,15 +24,22 @@ namespace TOTAL_CAR_FEES.APPLICATION.Fees.Queries
 
         public async Task<TotalFeesResponse> Handle(CalculateCarFeesQuery request, CancellationToken cancellationToken)
         {
+            #region Validations
             _ = request.basePrice ?? throw new ArgumentException(nameof(request.basePrice), "Request param needed to handle this task");
             _ = request.vehicleType ?? throw new ArgumentException(nameof(request.vehicleType), "Request param needed to handle this task");
             _ = !ValidateBasePrice(request.basePrice) ? throw new ArgumentException(nameof(request.basePrice), "Invalid value") : true;
             _ = !ValidateVehycloeType(request.vehicleType) ? throw new ArgumentException(nameof(request.vehicleType), "Invalid value") : true;
+            #endregion
+
+            #region Fees Calculations
             decimal decimalBasePrice = decimal.Parse(request.basePrice);
-            decimal basicFee = _feesService.CalculateBasicFee(decimal.Parse(request.basePrice), request.vehicleType);
-            decimal specialFee = _feesService.CalculateSpecialFee(decimal.Parse(request.basePrice), request.vehicleType);
-            decimal associationFee = _feesService.CalculateAssociationFee(decimal.Parse(request.basePrice), request.vehicleType);
-            decimal fixFee = _feesService.GetFixedFee(decimal.Parse(request.basePrice), request.vehicleType);
+            decimal basicFee = _feesService.CalculateBasicFee(decimal.Parse(request.basePrice), request.vehicleType.ToLower());
+            decimal specialFee = _feesService.CalculateSpecialFee(decimal.Parse(request.basePrice), request.vehicleType.ToLower());
+            decimal associationFee = _feesService.CalculateAssociationFee(decimal.Parse(request.basePrice), request.vehicleType.ToLower());
+            decimal fixFee = _feesService.GetFixedFee();
+            #endregion
+
+            #region PreparingResponse
             TotalFeesResponse response = new()
             {
                 VehiclePrice = decimalBasePrice.ToString("C", new CultureInfo("en-US")),
@@ -44,6 +51,7 @@ namespace TOTAL_CAR_FEES.APPLICATION.Fees.Queries
             response.Fees.Add(new Fee() { Name = SPECIAL, Value = specialFee.ToString("C", new CultureInfo("en-US")) });
             response.Fees.Add(new Fee() { Name = ASSOCIATION, Value = associationFee.ToString("C", new CultureInfo("en-US")) });
             response.Fees.Add(new Fee() { Name = STORAGE, Value = fixFee.ToString("C", new CultureInfo("en-US")) });
+            #endregion
 
             return response;
         }
