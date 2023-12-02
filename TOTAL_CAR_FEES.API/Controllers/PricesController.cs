@@ -1,6 +1,7 @@
 ﻿using System;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using TOTAL_CAR_FEES.APPLICATION.Fees.Models;
 using TOTAL_CAR_FEES.APPLICATION.Fees.Queries;
 
 namespace TOTAL_CAR_FEES.API.Controllers
@@ -18,10 +19,17 @@ namespace TOTAL_CAR_FEES.API.Controllers
 		}
 
 		[HttpGet("get-car-fees")]
-		public IActionResult GetCarPriceAndFees([FromQuery] string basePrice, [FromQuery] string vehicleType)
+		public async Task<IActionResult> GetCarPriceAndFees([FromQuery] string basePrice, [FromQuery] string vehicleType)
 		{
-			object result = _mediator.Send(new CalculateCarFeesQuery(basePrice, vehicleType));
-			return Ok(result);
+			try
+			{
+				TotalFeesResponse result = await _mediator.Send(new CalculateCarFeesQuery(basePrice, vehicleType));
+				return Ok(result);
+			}
+			catch (ArgumentException ax)
+			{
+				return BadRequest($"{ax.Message}");
+			}
 		}
 	}
 }
