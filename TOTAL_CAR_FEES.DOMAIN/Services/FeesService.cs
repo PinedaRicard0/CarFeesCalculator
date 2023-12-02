@@ -9,12 +9,9 @@ namespace TOTAL_CAR_FEES.DOMAIN.Services
         private const string LUXURY = "luxury";
         private const string COMMON = "common";
 
-        public FeesService()
-		{
-		}
-
 		public decimal CalculateBasicFee(decimal value, string vehicleType)
 		{
+            _ = value <= 0 ? throw new ArgumentException("Can not perform the calculation") : true;
             decimal tenPercent = (decimal)0.1;
             decimal tenPercentFee = value * tenPercent;
             if (vehicleType.ToLower().Equals(LUXURY))
@@ -30,7 +27,20 @@ namespace TOTAL_CAR_FEES.DOMAIN.Services
 
         public decimal CalculateSpecialFee(decimal value, string vehicleType)
         {
-            return 51561;
+            _ = value <= 0 ? throw new ArgumentException("Can not perform the calculation") : true;
+
+            decimal twoPercent = (decimal)0.02;
+            decimal fourPercent = (decimal)0.04;
+
+            if (vehicleType.ToLower().Equals(LUXURY))
+            {
+                return value * fourPercent;
+            }
+            else if (vehicleType.ToLower().Equals(COMMON))
+            {
+                return value * twoPercent;
+            }
+            throw new ArgumentException("Can not perform the calculation");
         }
 
         public decimal CalculateAssociationFee(decimal value, string vehicleType)
