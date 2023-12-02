@@ -6,4 +6,19 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TOTAL_CAR_FEES.DOMAIN\TOTAL_CAR_FEES.DOMAIN.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Fees\" />
+    <None Remove="Fees\Queries\" />
+    <None Remove="MediatR" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Fees\" />
+    <Folder Include="Fees\Queries\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.2.0" />
+  </ItemGroup>
 </Project>

@@ -1,5 +1,7 @@
 ﻿using System;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using TOTAL_CAR_FEES.APPLICATION.Fees.Queries;
 
 namespace TOTAL_CAR_FEES.API.Controllers
 {
@@ -8,14 +10,18 @@ namespace TOTAL_CAR_FEES.API.Controllers
     [Route("api/prices")]
     public class PricesController : ControllerBase
 	{
-		public PricesController()
+        private readonly IMediator _mediator;
+
+        public PricesController(IMediator mediator)
 		{
+			_mediator = mediator;
 		}
 
 		[HttpGet("get-car-fees")]
 		public IActionResult GetCarPriceAndFees([FromQuery] string basePrice, [FromQuery] string vehicleType)
 		{
-			return Ok();
+			object result = _mediator.Send(new CalculateCarFeesQuery(basePrice, vehicleType));
+			return Ok(result);
 		}
 	}
 }
