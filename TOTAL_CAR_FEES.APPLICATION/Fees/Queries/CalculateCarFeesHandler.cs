@@ -36,7 +36,7 @@ namespace TOTAL_CAR_FEES.APPLICATION.Fees.Queries
             #region Fees Calculations
             decimal basicFee = _feesService.CalculateBasicFee(decimal.Parse(request.basePrice), request.vehicleType.ToLower());
             decimal specialFee = _feesService.CalculateSpecialFee(decimal.Parse(request.basePrice), request.vehicleType.ToLower());
-            decimal associationFee = _feesService.CalculateAssociationFee(decimal.Parse(request.basePrice), request.vehicleType.ToLower());
+            decimal associationFee = _feesService.CalculateAssociationFee(decimal.Parse(request.basePrice));
             decimal fixFee = _feesService.GetFixedFee();
             #endregion
 
@@ -44,7 +44,7 @@ namespace TOTAL_CAR_FEES.APPLICATION.Fees.Queries
             TotalFeesResponse response = new()
             {
                 VehiclePrice = decimalBasePrice.ToString("C", new CultureInfo("en-US")),
-                VehicleType = request.vehicleType.Humanize(LetterCasing.Title),
+                VehicleType = request.vehicleType.ToLower().Humanize(LetterCasing.Title),
                 Total = (basicFee + specialFee + associationFee + fixFee + decimalBasePrice).ToString("C", new CultureInfo("en-US")),
                 Fees = new List<Fee>()
             };

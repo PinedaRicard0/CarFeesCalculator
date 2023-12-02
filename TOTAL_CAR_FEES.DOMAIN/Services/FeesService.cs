@@ -43,9 +43,19 @@ namespace TOTAL_CAR_FEES.DOMAIN.Services
             throw new ArgumentException("Can not perform the calculation");
         }
 
-        public decimal CalculateAssociationFee(decimal value, string vehicleType)
+        public decimal CalculateAssociationFee(decimal value)
         {
-            return 4546;
+            _ = value <= 0 ? throw new ArgumentException("Can not perform the calculation") : true;
+
+            if (value >= 1 && value <= 500)
+                return 5;
+            if (value > 500 && value <= 1000)
+                return 10;
+            if (value > 1000 && value <= 3000)
+                return 15;
+            if (value > 3000)
+                return 20;
+            return 0;
         }
 
         public decimal GetFixedFee()
