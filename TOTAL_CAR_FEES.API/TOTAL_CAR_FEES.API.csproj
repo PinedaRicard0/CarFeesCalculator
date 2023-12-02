@@ -17,6 +17,9 @@
     <ProjectReference Include="..\TOTAL_CAR_FEES.APPLICATION\TOTAL_CAR_FEES.APPLICATION.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\TOTAL_CAR_FEES.DOMAIN\TOTAL_CAR_FEES.DOMAIN.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Remove="MediatR" />

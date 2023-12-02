@@ -2,6 +2,7 @@
 using System.Net.NetworkInformation;
 using System.Reflection;
 using TOTAL_CAR_FEES.APPLICATION.Fees.Queries;
+using TOTAL_CAR_FEES.DOMAIN.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(cfg =>
      cfg.RegisterServicesFromAssembly(typeof(CalculateCarFeesQuery).Assembly));
+builder.Services.AddDomainServices();
 
 var app = builder.Build();
 
