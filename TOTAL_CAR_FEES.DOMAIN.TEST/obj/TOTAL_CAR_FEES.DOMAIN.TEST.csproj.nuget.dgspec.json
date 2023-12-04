@@ -1,0 +1,148 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/ricardo/Projects/TOTAL_CAR_FEES/TOTAL_CAR_FEES.DOMAIN.TEST/TOTAL_CAR_FEES.DOMAIN.TEST.csproj": {}
+  },
+  "projects": {
+    "/Users/ricardo/Projects/TOTAL_CAR_FEES/TOTAL_CAR_FEES.DOMAIN.TEST/TOTAL_CAR_FEES.DOMAIN.TEST.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ricardo/Projects/TOTAL_CAR_FEES/TOTAL_CAR_FEES.DOMAIN.TEST/TOTAL_CAR_FEES.DOMAIN.TEST.csproj",
+        "projectName": "TOTAL_CAR_FEES.DOMAIN.TEST",
+        "projectPath": "/Users/ricardo/Projects/TOTAL_CAR_FEES/TOTAL_CAR_FEES.DOMAIN.TEST/TOTAL_CAR_FEES.DOMAIN.TEST.csproj",
+        "packagesPath": "/Users/ricardo/.nuget/packages/",
+        "outputPath": "/Users/ricardo/Projects/TOTAL_CAR_FEES/TOTAL_CAR_FEES.DOMAIN.TEST/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/ricardo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/ricardo/Projects/TOTAL_CAR_FEES/TOTAL_CAR_FEES.DOMAIN/TOTAL_CAR_FEES.DOMAIN.csproj": {
+                "projectPath": "/Users/ricardo/Projects/TOTAL_CAR_FEES/TOTAL_CAR_FEES.DOMAIN/TOTAL_CAR_FEES.DOMAIN.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.1.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.3, )"
+            },
+            "NUnit.Analyzers": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/ricardo/Projects/TOTAL_CAR_FEES/TOTAL_CAR_FEES.DOMAIN/TOTAL_CAR_FEES.DOMAIN.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ricardo/Projects/TOTAL_CAR_FEES/TOTAL_CAR_FEES.DOMAIN/TOTAL_CAR_FEES.DOMAIN.csproj",
+        "projectName": "TOTAL_CAR_FEES.DOMAIN",
+        "projectPath": "/Users/ricardo/Projects/TOTAL_CAR_FEES/TOTAL_CAR_FEES.DOMAIN/TOTAL_CAR_FEES.DOMAIN.csproj",
+        "packagesPath": "/Users/ricardo/.nuget/packages/",
+        "outputPath": "/Users/ricardo/Projects/TOTAL_CAR_FEES/TOTAL_CAR_FEES.DOMAIN/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/ricardo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
