@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "6b9958bd-d26f-49f4-b961-a375e90fb3f6",
+		"name": "TotalCarFees",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5947677"
+	},
+	"item": [
+		{
+			"name": "Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"pinedaricardo07@gmail.com\",\n\t\"password\": \"P0o9i8u7y6t5*\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:7113/api/auth/token",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7113",
+					"path": [
+						"api",
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-car-fees",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjUzZjZlMDM1LTdmNmYtNDBmNS1hODNkLTk0NTRjMTU4YTEyNyIsInN1YiI6InBpbmVkYXJpY2FyZG8wN0BnbWFpbC5jb20iLCJlbWFpbCI6InBpbmVkYXJpY2FyZG8wN0BnbWFpbC5jb20iLCJqdGkiOiJlMjA4ZjgxMy02Y2I5LTQ5MTEtYTFkYS05NDljYTk2ZmY0YWUiLCJuYmYiOjE3MDE2NjA4ODcsImV4cCI6MTcwMTY2MjY4NywiaWF0IjoxNzAxNjYwODg3LCJpc3MiOiJodHRwczovL2ZpbmFrdGl2YS5jb20iLCJhdWQiOiJtb25nby5yZXBvc2l0cnkifQ.i85oQCDmvqQh-xOAhRazPYKt-es4jJpLsT_ywT5Xwh60Oo8rNrZjtG80doDUbxxf8Q_7phTZwq_aub5b-Hu60A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "insomnia/8.2.0"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7113/api/prices/get-car-fees?basePrice=2000&vehicleType=luxury",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7113",
+					"path": [
+						"api",
+						"prices",
+						"get-car-fees"
+					],
+					"query": [
+						{
+							"key": "basePrice",
+							"value": "2000"
+						},
+						{
+							"key": "vehicleType",
+							"value": "luxury"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
