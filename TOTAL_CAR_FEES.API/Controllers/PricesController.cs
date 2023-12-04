@@ -1,12 +1,13 @@
 ﻿using System;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TOTAL_CAR_FEES.APPLICATION.Fees.Models;
 using TOTAL_CAR_FEES.APPLICATION.Fees.Queries;
 
 namespace TOTAL_CAR_FEES.API.Controllers
 {
-
+    [Authorize]
     [ApiController]
     [Route("api/prices")]
     public class PricesController : ControllerBase
